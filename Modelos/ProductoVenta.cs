@@ -12,7 +12,10 @@ namespace ApiOwo.Models
         private long idProducto;
         private int stock;
         private long idVenta;
+        public ProductoVenta()
+        {
 
+        }
         public ProductoVenta(long id, long idProducto, int stock, long idVenta)
         {
             Id = id;

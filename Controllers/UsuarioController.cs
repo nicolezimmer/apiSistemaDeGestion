@@ -14,17 +14,24 @@ namespace ApiSistemaDeGestion.Controllers
         [HttpGet("{id}")]
         public Usuario traerUsuario(long id)
         {
-
             return ManejadorUsuario.traerUsuario(id);
         }
-
-        [HttpPut]
-        public void ModificarUsuario(Usuario usuario)
+        [HttpGet("{usuario}/{contrasena}")]
+        public Usuario Login(string usuario, string contrasena)
         {
-            ManejadorUsuario.modificarUsuario(usuario);
-
+            return ManejadorUsuario.inicioDeSesion(usuario, contrasena);
         }
-        
+        [HttpPut]
+        public bool ModificarUsuario(Usuario usuario)
+        {
+            return ManejadorUsuario.modificarUsuario(usuario);
+        }
+        [HttpPost]
+        public bool CrearUsuario(Usuario usuario)
+        {
+            return ManejadorUsuario.insertarUsuario(usuario);
+        }
+
 
 
     }

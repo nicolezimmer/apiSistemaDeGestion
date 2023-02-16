@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\primer entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj": {}
+    "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\segunda entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\primer entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj": {
+    "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\segunda entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\primer entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj",
+        "projectUniqueName": "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\segunda entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj",
         "projectName": "ApiSistemaDeGestion",
-        "projectPath": "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\primer entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj",
+        "projectPath": "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\segunda entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj",
         "packagesPath": "C:\\Users\\Nicole\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\primer entrega proyecto final\\ApiOwo\\obj\\",
+        "outputPath": "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\segunda entrega proyecto final\\ApiOwo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nicole\\AppData\\Roaming\\NuGet\\NuGet.Config",

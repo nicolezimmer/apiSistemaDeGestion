@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y79dt9HDlqZ/yMUPcz9WzFWbXZvN5vCt/Xk7qUMwb/lXhf7FT35w3SZZkjINK551R+krwX+Ldi6Fv69ZiFYE+Q==",
+  "dgSpecHash": "3sFQJB6/HxmTiEhyhk0u31ugwkLalCDMYrRGZDa+XjtZTVoQttWKPRR3HBcnNbJsdIjsSaLmSvyYAxDj0GWDJg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\primer entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj",
+  "projectFilePath": "C:\\Users\\Nicole\\Desktop\\c#\\entregas\\segunda entrega proyecto final\\ApiOwo\\ApiSistemaDeGestion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nicole\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Nicole\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

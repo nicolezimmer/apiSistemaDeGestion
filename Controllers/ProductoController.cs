@@ -16,23 +16,23 @@ namespace ApiSistemaDeGestion.Controllers
             return ManejadorProducto.traerProducto(id);
         }
         [HttpPost]
-        public void CrearProducto(Producto producto)
+        public bool CrearProducto(Producto producto)
         {
-            ManejadorProducto.insertarProducto(producto);
+            return ManejadorProducto.insertarProducto(producto);
 
         }
 
         [HttpPut]
-        public void ModificarProducto(Producto producto)
+        public bool ModificarProducto(Producto producto)
         {
-            ManejadorProducto.modificarProducto(producto);
+            return ManejadorProducto.modificarProducto(producto);
 
         }
 
         [HttpDelete("{id}")]
-        public void EliminarProducto(long id)
+        public bool EliminarProducto(long id)
         {
-            ManejadorProducto.eliminarProducto(id);
+            return ManejadorProducto.eliminarProducto(id);
         }
     }
 }

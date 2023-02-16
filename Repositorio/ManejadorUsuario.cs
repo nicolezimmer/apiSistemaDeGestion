@@ -7,11 +7,12 @@ namespace ApiSistemaDeGestion.Repositorio
     {
         public static Usuario inicioDeSesion(string usuario, string contraseña)
         {
+
             //Inicio de sesión (recibe un usuario y contraseña y devuelve un objeto Usuario)
             string connectionString = "Data Source=PCNICOLAS\\SQLEXPRESS;Initial Catalog=SistemaGestion;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand comando = new SqlCommand($"select * from Usuario where NombreUsuario= '{usuario}' and Contraseña = '{contraseña}'", connection);
+                SqlCommand comando = new SqlCommand($"select * from Usuario where NombreUsuario= '{usuario.Trim()}' and Contraseña = '{contraseña}'", connection);
                 Usuario buscado = new Usuario();
                 connection.Open();
                 SqlDataReader reader = comando.ExecuteReader();
@@ -47,33 +48,58 @@ namespace ApiSistemaDeGestion.Repositorio
                 return buscado;
             }
         }
-        public static void insertarUsuario(Usuario usuario)
+        public static bool insertarUsuario(Usuario usuario)
         {
-            string connectionString = "Data Source=PCNICOLAS\\SQLEXPRESS;Initial Catalog=SistemaGestion;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                using(SqlCommand comando = new SqlCommand($"INSERT INTO Usuario (Nombre, Apellido, NombreUsuario, Contraseña, Mail) VALUES ('{usuario.Nombre}', '{usuario.Apellido}', '{usuario.NombreUsuario}', '{usuario.Contraseña}', '{usuario.Mail}')\r\n", connection))
+                string connectionString = "Data Source=PCNICOLAS\\SQLEXPRESS;Initial Catalog=SistemaGestion;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    comando.ExecuteNonQuery();
+                    connection.Open();
+                    using (SqlCommand comando = new SqlCommand($"INSERT INTO Usuario (Nombre, Apellido, NombreUsuario, Contraseña, Mail) VALUES ('{usuario.Nombre}', '{usuario.Apellido}', '{usuario.NombreUsuario}', '{usuario.Contraseña}', '{usuario.Mail}')\r\n", connection))
+                    {
+                        comando.ExecuteNonQuery();
+                    }
+                    connection.Close();
+
                 }
-                connection.Close();
+
+                    return true;
 
             }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+
         }
-        public static void modificarUsuario(Usuario usuario)
+        public static bool modificarUsuario(Usuario usuario)
         {
-            string connectionString = "Data Source=PCNICOLAS\\SQLEXPRESS;Initial Catalog=SistemaGestion;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                using (SqlCommand comando = new SqlCommand($"UPDATE Usuario SET Nombre = '{usuario.NombreUsuario}',Apellido = '{usuario.Apellido}',NombreUsuario = '{usuario.NombreUsuario}',Contraseña = '{usuario.Contraseña}',Mail = '{usuario.Mail}' WHERE Id={usuario.Id}\r\n", connection))
+                string connectionString = "Data Source=PCNICOLAS\\SQLEXPRESS;Initial Catalog=SistemaGestion;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    comando.ExecuteNonQuery();
+                    connection.Open();
+
+                    using (SqlCommand comando = new SqlCommand($"UPDATE Usuario SET Nombre = '{usuario.NombreUsuario}',Apellido = '{usuario.Apellido}',NombreUsuario = '{usuario.NombreUsuario}',Contraseña = '{usuario.Contraseña}',Mail = '{usuario.Mail}' WHERE Id={usuario.Id}\r\n", connection))
+                    {
+                        comando.ExecuteNonQuery();
+                    }
+                    connection.Close();
+
                 }
-                connection.Close();
+
+                    return true;
 
             }
+            catch(Exception ex)
+            {
+                return false;   
+            }
+
         }
     }
 }
+

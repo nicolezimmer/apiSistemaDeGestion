@@ -1,6 +1,8 @@
 ﻿using ApiOwo.Models;
+using ApiSistemaDeGestion.Repositorio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -31,5 +33,48 @@ namespace ApiOwo.ADO.NET
                 return ventas;
             }
         }
+        public static long InsertarVenta(Venta venta) {
+            string connectionString = "Data Source=PCNICOLAS\\SQLEXPRESS;Initial Catalog=SistemaGestion;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string c = "insert into Venta (IdUsuario) values (@IdUsuario); select @@IDENTITY";
+                var IdUsuario = new SqlParameter();
+
+                IdUsuario.ParameterName = "IdUsuario";
+                IdUsuario.SqlDbType = SqlDbType.BigInt;
+                IdUsuario.Value = venta.IdUsuario;
+                connection.Open();
+                long IdVenta = 0;
+                using (SqlCommand comando = new SqlCommand(c, connection))
+                {
+                    comando.Parameters.Add(IdUsuario);
+                    IdVenta=Convert.ToInt64(comando.ExecuteScalar()); 
+                }
+                connection.Close();
+                return IdVenta;
+            }
+        }
+
+        public static bool CargarVenta(long id, List<Producto> productosVendidos) {
+            try
+            {
+                long IdVenta = 0;
+                foreach (Producto producto in productosVendidos)
+                {
+                    Venta venta = new Venta(0, "", id);
+                    IdVenta = InsertarVenta(venta);
+                    ProductoVenta productoVenta = new ProductoVenta(0, producto.Id, ManejadorProducto.UpdateStockProducto(producto.Id, 1), IdVenta);
+                    ManejadorProductoVendido.InsertarProductoVendido(productoVenta);
+
+                }
+                return true;    
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        
+        }
+
     }
 }

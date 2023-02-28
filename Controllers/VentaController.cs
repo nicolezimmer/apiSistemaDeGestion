@@ -16,5 +16,15 @@ namespace ApiSistemaDeGestion.Controllers
             return ManejadorVenta.CargarVenta(idUsuario, productosVendidos);
 
         }
+
+        [HttpGet("{idUsuario}")]
+        public List<Venta> traerVentas(long idUsuario)
+        {
+
+            return ManejadorVenta.traerVentas(idUsuario);
+        }
+
+
+
     }
 }

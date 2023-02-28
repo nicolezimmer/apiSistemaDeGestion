@@ -83,7 +83,7 @@ namespace ApiSistemaDeGestion.Repositorio
                 {
                     connection.Open();
 
-                    using (SqlCommand comando = new SqlCommand($"UPDATE Usuario SET Nombre = '{usuario.NombreUsuario}',Apellido = '{usuario.Apellido}',NombreUsuario = '{usuario.NombreUsuario}',Contraseña = '{usuario.Contraseña}',Mail = '{usuario.Mail}' WHERE Id={usuario.Id}\r\n", connection))
+                    using (SqlCommand comando = new SqlCommand($"UPDATE Usuario SET Nombre = '{usuario.Nombre}',Apellido = '{usuario.Apellido}',NombreUsuario = '{usuario.NombreUsuario}',Contraseña = '{usuario.Contraseña}',Mail = '{usuario.Mail}' WHERE Id={usuario.Id}\r\n", connection))
                     {
                         comando.ExecuteNonQuery();
                     }

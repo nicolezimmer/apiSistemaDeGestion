@@ -27,7 +27,7 @@ namespace ApiOwo.ADO.NET
                     // el reader.Read() devuelve true si existen mas filas debajo de la fila de la iteracion  
                     while (reader.Read())
                     {
-                        ventas.Add(new Venta(reader.GetInt64(0), reader.GetString(1), reader.GetInt64(2)));
+                        ventas.Add(new Venta(reader.GetInt64(0),"sin comentarios", reader.GetInt64(2)));
                     }
                 }
                 return ventas;

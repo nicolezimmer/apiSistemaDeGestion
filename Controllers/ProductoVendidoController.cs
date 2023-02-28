@@ -11,10 +11,10 @@ namespace ApiSistemaDeGestion.Controllers
     public class ProductoVendidoController : ControllerBase
     {
         [HttpGet("{id}")]
-        public ProductoVenta traerProductoVendido(long id)
+        public List<ProductoVenta> traerProductoVendidoS(long id)
         {
 
-            return ManejadorProductoVendido.traerProductoVendido(id);
+            return ManejadorProductoVendido.traerProductoVendidoS(id);
         }
 
     }
